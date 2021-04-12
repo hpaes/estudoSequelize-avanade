@@ -1,5 +1,5 @@
-const { Usuario, Post, sequelize, Comentario } = require('./models');
-const { Op } = require('sequelize');
+const { Usuario, Post, sequelize, Comentario } = require("./models");
+const { Op } = require("sequelize");
 
 //Usuario
 
@@ -11,18 +11,18 @@ const { Op } = require('sequelize');
 //   console.table(resultado.toJSON());
 // });
 
-Usuario.update(
-  {
-    email: 'sergio@digitalhouse.com',
-  },
-  {
-    where: {
-      nome: { [Op.like]: 'Sergio%' },
-    },
-  }
-).then((resultado) => {
-  console.log(resultado);
-});
+// Usuario.update(
+//   {
+//     email: 'sergio@digitalhouse.com',
+//   },
+//   {
+//     where: {
+//       nome: { [Op.like]: 'Sergio%' },
+//     },
+//   }
+// ).then((resultado) => {
+//   console.log(resultado);
+// });
 
 // Usuario.destroy({
 //   where: {
@@ -63,6 +63,15 @@ Usuario.update(
 // Usuario.findByPk(3).then((resultado) => {
 //   console.log(resultado.toJSON());
 // });
+
+// Usuario.findByPk(1, { include: [{ association: "posts" }] }).then((usuario) => {
+//     console.table(usuario.posts.map((post) => post.toJSON()));
+// });
+
+Usuario.findByPk(1, { include: ["posts"] }).then((usuario) => {
+    console.log(usuario.toJSON());
+    sequelize.close();
+});
 
 //POST;
 
