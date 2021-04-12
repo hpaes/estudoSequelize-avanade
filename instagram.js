@@ -68,10 +68,10 @@ const { Op } = require("sequelize");
 //     console.table(usuario.posts.map((post) => post.toJSON()));
 // });
 
-Usuario.findByPk(1, { include: ["posts"] }).then((usuario) => {
-    console.log(usuario.toJSON());
-    sequelize.close();
-});
+// Usuario.findByPk(1, { include: ["posts"] }).then((usuario) => {
+//     console.log(usuario.toJSON());
+//     sequelize.close();
+// });
 
 //POST;
 
@@ -105,6 +105,15 @@ Usuario.findByPk(1, { include: ["posts"] }).then((usuario) => {
 
 // Post.findAll({}).then((resultado) => {
 //   console.log(resultado.map((post) => post.toJSON()));
+// });
+
+// Post.findByPk(1, { include: [{ association: "comentarios" }] }).then((post) => {
+//     console.table(post.comentarios.map((post) => post.toJSON()));
+// });
+
+// Post.findByPk(1, { include: ["comentarios"] }).then((post) => {
+//     console.log(post.toJSON());
+//     sequelize.close();
 // });
 
 // Comentario
