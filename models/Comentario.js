@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     'Comentario',
     {
       texto: DataTypes.STRING,
+      usuarios_id: DataTypes.NUMBER,
       posts_id: DataTypes.NUMBER,
     },
     {

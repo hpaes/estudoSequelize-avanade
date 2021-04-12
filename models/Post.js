@@ -3,6 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     'Post',
     {
       texto: DataTypes.STRING,
+      usuarios_id: DataTypes.NUMBER,
       img: DataTypes.STRING,
       n_likes: DataTypes.NUMBER,
     },
