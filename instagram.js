@@ -2,21 +2,21 @@ const { Usuario, Post, sequelize, Comentario } = require('./models');
 const { Op } = require('sequelize');
 
 //Usuario
-Usuario.findAll({
-  where: {
-    nome: { [Op.like]: '%a%' },
-  },
-}).then((resultado) => {
-  console.table(resultado.map((user) => user.toJSON()));
-});
+// Usuario.findAll({
+//   where: {
+//     nome: { [Op.like]: '%a%' },
+//   },
+// }).then((resultado) => {
+//   console.table(resultado.map((user) => user.toJSON()));
+// });
 
-Usuario.findAll({
-  where: {
-    nome: { [Op.notLike]: '%a%' },
-  },
-}).then((resultado) => {
-  console.table(resultado.map((user) => user.toJSON()));
-});
+// Usuario.findAll({
+//   where: {
+//     nome: { [Op.notLike]: '%a%' },
+//   },
+// }).then((resultado) => {
+//   console.table(resultado.map((user) => user.toJSON()));
+// });
 
 // Usuario.findOne({
 //   where: {
@@ -33,11 +33,11 @@ Usuario.findAll({
 //POST;
 
 // Post.findAll({
-//   where: {
-//     texto: { [Op.like]: '%oi%' },
-//   },
+//   order: [['texto', 'ASC']],
+//   limit: 2,
+//   offset: 2,
 // }).then((resultado) => {
-//   console.table(resultado.map((post) => post.toJSON()));
+//   console.log(resultado.map((post) => post.toJSON()));
 // });
 
 // Post.findOne({
@@ -53,9 +53,13 @@ Usuario.findAll({
 // });
 
 // Comentario
-// Comentario.findAll().then((resultado) => {
-//   console.table(resultado.map((comment) => comment.toJSON()));
-// });
+Comentario.findAll({
+  order: [['texto', 'ASC']],
+  limit: 2,
+  offset: 2,
+}).then((resultado) => {
+  console.table(resultado.map((comment) => comment.toJSON()));
+});
 
 // Comentario.findOne({
 //   where: {
