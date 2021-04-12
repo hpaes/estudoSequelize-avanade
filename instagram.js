@@ -53,13 +53,15 @@ const { Op } = require('sequelize');
 // });
 
 // Comentario
-Comentario.findAll({
-  order: [['texto', 'ASC']],
-  limit: 2,
-  offset: 2,
-}).then((resultado) => {
-  console.table(resultado.map((comment) => comment.toJSON()));
-});
+for (let i = 0; i < 6; i += 2) {
+  Comentario.findAll({
+    order: [['id', 'DESC']],
+    offset: i,
+    limit: 2,
+  }).then((resultado) => {
+    console.table(resultado.map((comment) => comment.toJSON()));
+  });
+}
 
 // Comentario.findOne({
 //   where: {
