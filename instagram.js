@@ -11,18 +11,18 @@ const { Op } = require('sequelize');
 //   console.table(resultado.toJSON());
 // });
 
-// Usuario.update(
-//   {
-//     email: 'sergio@digitalhouse.com',
-//   },
-//   {
-//     where: {
-//       id: 2,
-//     },
-//   }
-// ).then((resultado) => {
-//   console.log(resultado);
-// });
+Usuario.update(
+  {
+    email: 'sergio@digitalhouse.com',
+  },
+  {
+    where: {
+      nome: { [Op.like]: 'Sergio%' },
+    },
+  }
+).then((resultado) => {
+  console.log(resultado);
+});
 
 // Usuario.destroy({
 //   where: {
