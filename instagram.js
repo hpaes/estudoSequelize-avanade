@@ -138,3 +138,9 @@ const { Op } = require("sequelize");
 // Comentario.findByPk(3).then((resultado) => {
 //   console.log(resultado.toJSON());
 // });
+
+// Curtidas
+Post.findByPk(1, { include: ["curtiu"] }).then((post) => {
+    console.log(post.toJSON());
+    sequelize.close();
+});
